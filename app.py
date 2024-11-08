@@ -2,12 +2,15 @@
 
 from flask import Flask, render_template, request, session, redirect, url_for, jsonify
 import mysql.connector
+import pymysql
 import bcrypt
 import requests
 import os
 
 app = Flask(__name__)
 app.secret_key = os.environ.get('APP_SECRET_KEY')
+pymysql.install_as_MySQLdb()
+
 
 db_host = os.environ.get('DB_HOST')
 db_user = os.environ.get('DB_USER')
